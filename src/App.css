@@ -1,0 +1,102 @@
+/* Import Google Font Manrope */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
+}
+
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+body {
+  /* background: url('./images/mesh-551.png') no-repeat center center scroll; */
+  background-color: rgb(64, 64, 64);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* PULSING */
+.mic-toggle:after,
+.mic-toggle:before {
+  --pad: 0rem;
+  content: '';
+  display: block;
+  position: absolute;
+  z-index: 0;
+  background-color: rgba(210, 135, 154, 0.079);
+  top: var(--pad);
+  left: var(--pad);
+  right: var(--pad);
+  bottom: var(--pad);
+  border-radius: 50%;
+}
+
+.mic-toggle:after {
+  transition: 0.4s;
+}
+
+.mic-toggle:before {
+  transition: 0.2s;
+}
+
+.mic-toggle:hover:before {
+  --pad: -1rem;
+}
+
+.mic-toggle:hover:after {
+  --pad: -2rem;
+}
+
+.mic-toggle.is-recording:after {
+  animation: smoothPadAfter 0.6s ease-in alternate-reverse forwards infinite;
+}
+
+.mic-toggle.is-recording:before {
+  animation: smoothPadBefore 0.6s ease-in alternate-reverse forwards infinite;
+}
+
+@keyframes smoothPadAfter {
+  0% {
+    top: -2rem;
+    left: -2rem;
+    right: -2rem;
+    bottom: -2rem;
+  }
+  100% {
+    top: -1rem;
+    left: -1rem;
+    right: -1rem;
+    bottom: -1rem;
+  }
+}
+
+@keyframes smoothPadBefore {
+  0% {
+    top: -1rem;
+    left: -1rem;
+    right: -1rem;
+    bottom: -1rem;
+  }
+  100% {
+    top: -0.5rem;
+    left: -0.5rem;
+    right: -0.5rem;
+    bottom: -0.5rem;
+  }
+}
+
+.is-hidden {
+  display: none;
+}

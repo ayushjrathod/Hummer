@@ -25,10 +25,12 @@ function App() {
           <Route
             path="/"
             element={
-              <div className="flex h-screen items-center">
+              <div className="flex h-screen items-center justify-around">
                 <WebRecorder />
-                <div className="text-white text-xl font-medium">
-                  <h2 className="text-left text-2xl">Songs in database:</h2>
+                <div className="text-white text-xl font-medium w-1/2">
+                  <h2 className="text-left text-2xl mb-4">
+                    Songs in database:
+                  </h2>
                   <div className="flex justify-start items-center flex-wrap gap-4">
                     {songs.map((song, index) => (
                       <div

@@ -6,6 +6,7 @@ from basic_pitch.note_creation import model_output_to_notes
 # audio file to MIDI using the Basic Pitch model
 # takes audio and predicts musical notes present
 # takes model's output and creates MIDI formatted file
+
 def audio_to_midi(audio_path: str):
     model_output, _, _ = predict(audio_path, ICASSP_2022_MODEL_PATH)
 

@@ -1,5 +1,4 @@
 import os
-
 import numpy as np
 from astrapy import DataAPIClient
 from flask import Flask, jsonify, request

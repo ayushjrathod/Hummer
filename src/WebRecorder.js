@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 function Home() {
   const [searchText, setSearchText] = useState('Search');
   const [isClicked, setIsClicked] = useState(false);
-  const [trackInfo, setTrackInfo] = useState(null);
   const [audioBlob, setAudioBlob] = useState(null);
   const micButtonRef = useRef(null);
   const playbackRef = useRef(null);
@@ -98,7 +97,6 @@ function Home() {
       );
 
       const jsonData = await response.json();
-      setTrackInfo(jsonData);
       navigate('/results', { state: { trackInfo: jsonData.tracks } });
     } catch (error) {
       console.error('Error:', error);
@@ -123,7 +121,7 @@ function Home() {
           Random hum
         </button>
         <audio
-          className="playback shadow-lg rounded-full"
+          className="playback shadow-lg rounded-2xl"
           controls
           ref={playbackRef}
         ></audio>

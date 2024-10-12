@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-function Song() {
+function SongPage() {
   const location = useLocation();
-  const [track, setTrack] = useState(null); // Fixed useState syntax
-  const navigate = useNavigate();
+  const [track, setTrack] = useState(null);
 
   useEffect(() => {
     const fetchTrackData = async () => {
@@ -23,22 +22,18 @@ function Song() {
     fetchTrackData();
   }, [location.pathname]); // Added dependency for pathname
 
-  const handleBackClick = () => {
-    navigate(-1); // Go back to the previous page
-  };
-
   if (!track) {
     return <div>No track info available</div>; // Handle case when track is not loaded yet
   }
 
   return (
     <div className="flex flex-col items-center text-center mt-4">
-      <button
-        className="absolute top-[100px] left-[70px] invert brightness-200 text-3xl font-black cursor-pointer mb-4 p-2.5 rounded transition-opacity duration-300 ease-in-out hover:opacity-60"
-        onClick={handleBackClick}
+      <Link
+        to="/"
+        className="absolute top-[10px] left-[20px] invert brightness-200 text-2xl font-black cursor-pointer mb-4 p-2.5 rounded transition-opacity duration-300 ease-in-out hover:opacity-60"
       >
-        ⬅
-      </button>
+        Home
+      </Link>
       <img
         src={track.album_image}
         alt="Album"
@@ -50,9 +45,9 @@ function Song() {
       <h4 className="font-semibold text-xl text-white opacity-60 text-center mb-4 shadow-md">
         {track.album}
       </h4>
-      <audio controls src={track.track_url} className="m-4" />
+      <audio controls src={track.track_url} className="m-4 rounded-xl" />
     </div>
   );
 }
 
-export default Song;
+export default SongPage;

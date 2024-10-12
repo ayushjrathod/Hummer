@@ -3,7 +3,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import Hero from './Hero';
 import Results from './Results';
-import Songs from './Songs';
+import SongPage from './SongPage';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Hero />} />
           <Route path="/results" element={<Results />} />
-          <Route path="/song/:name" element={<Songs />} />
+          <Route path="/song/:name" element={<SongPage />} />
         </Routes>
       </div>
     </Router>

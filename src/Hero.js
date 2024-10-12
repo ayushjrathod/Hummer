@@ -23,11 +23,11 @@ const Hero = () => {
     setVisibleSongs(showAll ? 10 : songs.length);
   };
   return (
-    <div className="flex h-screen items-center justify-around">
+    <div className="flex items-center justify-around mt-24">
       <WebRecorder />
       <div className="text-white text-xl font-medium w-1/2">
         <h2 className="text-left text-2xl mb-4">Songs in database:</h2>
-        <div className="flex justify-start items-center flex-wrap gap-4">
+        <div className="flex flex-wrap gap-4">
           {songs.slice(0, visibleSongs).map((song, index) => (
             <div
               key={index}
@@ -42,14 +42,16 @@ const Hero = () => {
             </div>
           ))}
         </div>
-        {songs.length > 10 && (
-          <button
-            className="text-white text-sm font-medium rounded-lg p-2 bg-[#641131] mt-4 cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#76325d]"
-            onClick={toggleShowAll}
-          >
-            {showAll ? 'Show less' : 'Show all'}
-          </button>
-        )}
+        <div className="">
+          {songs.length > 10 && (
+            <button
+              className="text-white text-sm font-medium rounded-lg p-2 bg-[#641131] mt-4 cursor-pointer transition-colors duration-300 ease-in-out hover:bg-[#76325d]"
+              onClick={toggleShowAll}
+            >
+              {showAll ? 'Show less' : 'Show all'}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -45,7 +45,7 @@ def upload():
         emb = generate_embedding(temp_audio_path)
         emb_str = np.array2string(emb, separator=',', formatter={'float_kind':lambda x: "%.20f" % x}).replace(' ', '')
         
-        print("vector:", emb_str) # Debugging statement to see vector output
+        #print("vector:", emb_str) # Debugging statement to see vector output
         
         # vector similiarity search
         results = collection.find(
@@ -62,7 +62,7 @@ def upload():
                 'track_url': doc['track_url']
             })
 
-        print("Matching result:", tracks)  # Debugging statement
+        #print("Matching result:", tracks)  # Debugging statement
 
         os.remove(temp_audio_path)
 
@@ -73,6 +73,16 @@ def upload():
     except Exception as e:
             return jsonify({"error uploading audio": str(e)}), 500
 
+@app.route('/song/<name>', methods=['GET'])
+def get_song(name):
+    try:
+        song = collection.find_one({'track': name})
+        response = jsonify(song)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+    except Exception as e:
+        return jsonify({"error retrieving song from Astra": str(e)}), 500
+    
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,53 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
+import Hero from './Hero';
 import Results from './Results';
-import WebRecorder from './WebRecorder';
+import Songs from './Songs';
 
 function App() {
-  const [songs, setSongs] = useState([]);
-
-  useEffect(() => {
-    console.log('Backend URL:', process.env.REACT_APP_BACKEND_URL);
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/songs`, {
-      mode: 'cors',
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setSongs(data);
-      });
-  }, []);
-
   return (
     <Router>
       <div className="app-container">
         <Routes>
-          <Route
-            path="/"
-            element={
-              <div className="flex h-screen items-center justify-around">
-                <WebRecorder />
-                <div className="text-white text-xl font-medium w-1/2">
-                  <h2 className="text-left text-2xl mb-4">
-                    Songs in database:
-                  </h2>
-                  <div className="flex justify-start items-center flex-wrap gap-4">
-                    {songs.map((song, index) => (
-                      <div
-                        key={index}
-                        className="bg-[rgba(210,135,154,0.079)] rounded-lg p-2.5 shadow-md text-center flex flex-col items-center"
-                      >
-                        <p className="text-sm text-[#ddd] m-0">
-                          {song.track} - {song.artist}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            }
-          />
+          <Route path="/" element={<Hero />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/song/:name" element={<Songs />} />
         </Routes>
       </div>
     </Router>

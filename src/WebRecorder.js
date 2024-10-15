@@ -132,6 +132,12 @@ function Home() {
           {searchText}
         </button>
       </div>
+      <div className=" h-96 w-96">
+        {/* <Spline
+          className="rounded-3xl"
+          scene="https://prod.spline.design/oUpWp2b6QEDWuEOd/scene.splinecode"
+        /> */}
+      </div>
     </main>
   );
 }

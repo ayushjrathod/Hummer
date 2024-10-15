@@ -18,7 +18,8 @@ button {
 
 body {
   /* background: url('./images/mesh-551.png') no-repeat center center scroll; */
-  background-color: rgb(64, 64, 64);
+  /* background-color: rgb(64, 64, 64); */
+  background-color: #063a86;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

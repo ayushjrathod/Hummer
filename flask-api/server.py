@@ -1,9 +1,15 @@
 import os
+
 import numpy as np
 from astrapy import DataAPIClient
+from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from getEmbeds import generate_embedding
+
+load_dotenv()
+os.environ["ASTRA_DB_APPLICATION_TOKEN"] = os.getenv("ASTRA_DB_APPLICATION_TOKEN")
+os.environ["ASTRA_DB_API_ENDPOINT"] = os.getenv("ASTRA_DB_API_ENDPOINT")
 
 app = Flask(__name__)
 CORS(app)

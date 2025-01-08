@@ -6,6 +6,7 @@
 .pnp.js
 /flask-api/venv
 /package-lock.json
+flask-api/separated
 
 # testing
 /coverage

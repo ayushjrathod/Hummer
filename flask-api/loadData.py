@@ -5,7 +5,6 @@ import subprocess
 import pandas as pd
 import requests
 from astrapy import DataAPIClient
-from astrapy.constants import VectorMetric
 from dotenv import load_dotenv
 from getEmbeds import generate_embedding
 
@@ -24,11 +23,6 @@ num_cores = multiprocessing.cpu_count()
 temp_dir = 'temp'
 os.makedirs(temp_dir, exist_ok=True)
 
-collection = database.create_collection(
-    "song_data",
-    dimension=128,
-    metric=VectorMetric.COSINE,
-)
 
 for index, row in song_data.iterrows():
     track = row['Track Name']

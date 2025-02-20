@@ -44,7 +44,8 @@ function Results() {
         {trackInfo.slice(1, 5).map((track, index) => (
           <div
             key={index}
-            className="bg-[rgba(210,135,154,0.079)] rounded-lg p-2.5 shadow-md text-center flex flex-col items-center"
+            className="bg-[rgba(210,135,154,0.079)] rounded-lg p-2.5 shadow-md text-center flex flex-col items-center cursor-pointer"
+            onClick={() => (window.location.href = `/song/${track.track}`)}
           >
             <p className="text-sm text-[#ddd] m-0">
               {track.track} - {track.artist}

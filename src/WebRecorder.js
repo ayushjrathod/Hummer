@@ -104,7 +104,7 @@ function Home() {
   };
 
   return (
-    <main className="flex flex-col">
+    <main className="flex flex-col h-screen">
       <button
         className="mic-toggle relative mx-20 my-12 block w-44 h-44 rounded-full bg-white bg-opacity-10"
         ref={micButtonRef}
